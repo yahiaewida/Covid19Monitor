@@ -10,5 +10,6 @@ import Foundation
 struct Urls {
     static let BASE_URL = "https://disease.sh/v2/"
     static let ALL_STATISTICS = "all"
+    static let COUNTRIES_STATISTICS = "countries"
 }
 

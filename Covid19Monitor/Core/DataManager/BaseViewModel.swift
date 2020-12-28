@@ -2,11 +2,16 @@
 //  BaseViewModel.swift
 //  Covid19Monitor
 //
-//  Created by Yahia Ewida on 12/24/20.
+//  Created by Yahia Ewida on 12/28/20.
 //
 
 import Foundation
 import Combine
-struct BaseViewModel {
+
+class BaseViewModel {
     var subscriptions: [AnyCancellable] = []
+    
+    deinit {
+        subscriptions.removeAll()
+    }
 }
