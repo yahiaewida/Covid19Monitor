@@ -17,3 +17,12 @@ extension Color {
     static let lightGreen = Color(red: 118/255, green: 213/255, blue: 132/255)
     static let customizedPurple = Color(red: 130/255, green: 95/255, blue: 238/255)
 }
+
+
+extension UINavigationController {
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationBar.standardAppearance.configureWithTransparentBackground()
+        navigationBar.isHidden = true
+    }
+}

@@ -12,18 +12,23 @@ import Combine
 class CountriesViewModel: BaseViewModel, ObservableObject {
     private let dataManager = DataManager()
     @Published private(set) var countriesData = [Country]()
+    @Published private(set) var continents = [String]()   
     
     override init () {
         super.init()
         self.getAllCourntriesData()
     }
+    
     private func getAllCourntriesData(){
-        dataManager.getAllCountriesData().sink { (error) in
-            self.countriesData = [Country]()
-        } receiveValue: { (countries) in
-            self.countriesData = countries.sorted{ country1 , country2 in
-                return country1.cases ?? 0 >= country2.cases ?? 0
-            }
+        dataManager.getAllCountriesData().sink { [weak self] (error) in
+            self?.countriesData = [Country]()
+            self?.isLoading = false
+        } receiveValue: { [weak self ](countries) in
+            guard let self = self else { return }
+            self.isLoading = false
+            self.countriesData = countries
+            self.continents = Array<String>(Set(countries.map { ($0.continent ?? "") }))
+            
         }.store(in: &subscriptions)
     }
 }

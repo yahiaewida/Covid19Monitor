@@ -17,6 +17,7 @@ struct StatisticsHeaderView <Header: View>: View  {
     var confirmed: Int64
     var recovered: Int64
     var deaths: Int64
+    var widthOffset : CGFloat = 20
     
     var body: some View {
         ZStack(alignment: .top){
@@ -24,7 +25,7 @@ struct StatisticsHeaderView <Header: View>: View  {
                 .fill(backgroundColor)
                 .cornerRadius(20)
                 .shadow(radius: isShadowRequired ? 10 : 0)
-                .frame(width:reader.size.width, height: height)
+                .frame(width:reader.size.width > 0 ? reader.size.width - widthOffset : reader.size.width, height: height)
             
             VStack {
                upperHeader

@@ -8,6 +8,8 @@
 import Foundation
 
 struct Country: Codable {
+   
+    
     var updated: Int64? = 0
     var country: String? = ""
     var continent: String? = ""
@@ -25,4 +27,6 @@ struct Country: Codable {
     var isSubscribed: Bool? = false
     var flag: String? = ""
     var countryInfo: CountryInfo? = CountryInfo()
+   
+    
 }

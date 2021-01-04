@@ -10,6 +10,7 @@ import Combine
 
 class BaseViewModel {
     var subscriptions: [AnyCancellable] = []
+    @Published var isLoading = true
     
     deinit {
         subscriptions.removeAll()

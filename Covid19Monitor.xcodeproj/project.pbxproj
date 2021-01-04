@@ -3,11 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		08659C0D62444F03A2709762 /* Pods_Covid19Monitor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F03294ED23F15F2FC008A36B /* Pods_Covid19Monitor.framework */; };
+		E798044B259CB778007EAA9F /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = E798044A259CB778007EAA9F /* SwiftUICharts */; };
+		E798044F25A1FD28007EAA9F /* CountryDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E798044E25A1FD28007EAA9F /* CountryDetailsViewModel.swift */; };
+		E798045325A1FD9C007EAA9F /* CountryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E798045225A1FD9C007EAA9F /* CountryDetails.swift */; };
+		E798045D25A37788007EAA9F /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E798045C25A37787007EAA9F /* PageControl.swift */; };
+		E798046125A377A6007EAA9F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E798046025A377A6007EAA9F /* PageViewController.swift */; };
+		E798046F25A37D91007EAA9F /* PagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E798046E25A37D91007EAA9F /* PagesView.swift */; };
+		E798047425A37DAE007EAA9F /* PagesViewContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E798047325A37DAE007EAA9F /* PagesViewContent.swift */; };
 		E79B17032594D585005C3CB1 /* Covid19MonitorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B17022594D585005C3CB1 /* Covid19MonitorApp.swift */; };
 		E79B17052594D585005C3CB1 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B17042594D585005C3CB1 /* MainTabView.swift */; };
 		E79B17072594D588005C3CB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E79B17062594D588005C3CB1 /* Assets.xcassets */; };
@@ -28,11 +35,38 @@
 		E79B1765259A2CA7005C3CB1 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B1764259A2CA7005C3CB1 /* BaseViewModel.swift */; };
 		E79B176B259A3AE6005C3CB1 /* CountriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B176A259A3AE6005C3CB1 /* CountriesViewModel.swift */; };
 		E79B1772259A45EB005C3CB1 /* CountryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B1771259A45EB005C3CB1 /* CountryInfo.swift */; };
+		E79B177C259A56E0005C3CB1 /* CountriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B177B259A56E0005C3CB1 /* CountriesView.swift */; };
+		E79B1780259B52C2005C3CB1 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B177F259B52C2005C3CB1 /* ActivityIndicator.swift */; };
+		E79B1796259B7823005C3CB1 /* SelectionLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B1794259B7823005C3CB1 /* SelectionLine.swift */; };
+		E79B1797259B7823005C3CB1 /* SelectionIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B1795259B7823005C3CB1 /* SelectionIndicator.swift */; };
+		E79B17A0259B7864005C3CB1 /* BarGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B179F259B7864005C3CB1 /* BarGraphView.swift */; };
+		E79B17B6259B8B8E005C3CB1 /* Extension+ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B17A6259B8B8C005C3CB1 /* Extension+ViewModifiers.swift */; };
+		E79B17B7259B8B8E005C3CB1 /* Extension+Decimals.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B17A7259B8B8C005C3CB1 /* Extension+Decimals.swift */; };
+		E79B17B8259B8B8E005C3CB1 /* CoordinateSystemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B17A8259B8B8C005C3CB1 /* CoordinateSystemView.swift */; };
+		E79B17B9259B8B8E005C3CB1 /* XAxisLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B17A9259B8B8D005C3CB1 /* XAxisLayout.swift */; };
+		E79B17BA259B8B8E005C3CB1 /* Extension+StringSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B17AA259B8B8D005C3CB1 /* Extension+StringSize.swift */; };
+		E79B17BB259B8B8E005C3CB1 /* BarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B17AB259B8B8D005C3CB1 /* BarShape.swift */; };
+		E79B17BC259B8B8E005C3CB1 /* ChartConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B17AC259B8B8D005C3CB1 /* ChartConfiguration.swift */; };
+		E79B17BD259B8B8E005C3CB1 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B17AD259B8B8D005C3CB1 /* BarChartView.swift */; };
+		E79B17BE259B8B8E005C3CB1 /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B17AE259B8B8D005C3CB1 /* ChartData.swift */; };
+		E79B17BF259B8B8E005C3CB1 /* XAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B17AF259B8B8D005C3CB1 /* XAxis.swift */; };
+		E79B17C0259B8B8E005C3CB1 /* BarChartCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B17B0259B8B8D005C3CB1 /* BarChartCollectionView.swift */; };
+		E79B17C1259B8B8E005C3CB1 /* YAxisScaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B17B1259B8B8D005C3CB1 /* YAxisScaler.swift */; };
+		E79B17C2259B8B8E005C3CB1 /* YAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B17B2259B8B8D005C3CB1 /* YAxis.swift */; };
+		E79B17C3259B8B8E005C3CB1 /* BarChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B17B3259B8B8D005C3CB1 /* BarChartCell.swift */; };
+		E79B17C4259B8B8E005C3CB1 /* GradientColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B17B4259B8B8D005C3CB1 /* GradientColor.swift */; };
+		E79B17C5259B8B8E005C3CB1 /* AxisBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B17B5259B8B8E005C3CB1 /* AxisBase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3C4365418EDE98F1DB1AA9AA /* Pods-Covid19Monitor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid19Monitor.release.xcconfig"; path = "Target Support Files/Pods-Covid19Monitor/Pods-Covid19Monitor.release.xcconfig"; sourceTree = "<group>"; };
 		795AB8941E9123A13083FB48 /* Pods-Covid19Monitor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid19Monitor.debug.xcconfig"; path = "Target Support Files/Pods-Covid19Monitor/Pods-Covid19Monitor.debug.xcconfig"; sourceTree = "<group>"; };
+		E798044E25A1FD28007EAA9F /* CountryDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailsViewModel.swift; sourceTree = "<group>"; };
+		E798045225A1FD9C007EAA9F /* CountryDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetails.swift; sourceTree = "<group>"; };
+		E798045C25A37787007EAA9F /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
+		E798046025A377A6007EAA9F /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		E798046E25A37D91007EAA9F /* PagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagesView.swift; sourceTree = "<group>"; };
+		E798047325A37DAE007EAA9F /* PagesViewContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagesViewContent.swift; sourceTree = "<group>"; };
 		E79B16FF2594D585005C3CB1 /* Covid19Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Covid19Monitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E79B17022594D585005C3CB1 /* Covid19MonitorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Covid19MonitorApp.swift; sourceTree = "<group>"; };
 		E79B17042594D585005C3CB1 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -55,6 +89,27 @@
 		E79B1764259A2CA7005C3CB1 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		E79B176A259A3AE6005C3CB1 /* CountriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesViewModel.swift; sourceTree = "<group>"; };
 		E79B1771259A45EB005C3CB1 /* CountryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryInfo.swift; sourceTree = "<group>"; };
+		E79B177B259A56E0005C3CB1 /* CountriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesView.swift; sourceTree = "<group>"; };
+		E79B177F259B52C2005C3CB1 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		E79B1794259B7823005C3CB1 /* SelectionLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionLine.swift; sourceTree = "<group>"; };
+		E79B1795259B7823005C3CB1 /* SelectionIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionIndicator.swift; sourceTree = "<group>"; };
+		E79B179F259B7864005C3CB1 /* BarGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarGraphView.swift; sourceTree = "<group>"; };
+		E79B17A6259B8B8C005C3CB1 /* Extension+ViewModifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+ViewModifiers.swift"; sourceTree = "<group>"; };
+		E79B17A7259B8B8C005C3CB1 /* Extension+Decimals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+Decimals.swift"; sourceTree = "<group>"; };
+		E79B17A8259B8B8C005C3CB1 /* CoordinateSystemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinateSystemView.swift; sourceTree = "<group>"; };
+		E79B17A9259B8B8D005C3CB1 /* XAxisLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XAxisLayout.swift; sourceTree = "<group>"; };
+		E79B17AA259B8B8D005C3CB1 /* Extension+StringSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+StringSize.swift"; sourceTree = "<group>"; };
+		E79B17AB259B8B8D005C3CB1 /* BarShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarShape.swift; sourceTree = "<group>"; };
+		E79B17AC259B8B8D005C3CB1 /* ChartConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartConfiguration.swift; sourceTree = "<group>"; };
+		E79B17AD259B8B8D005C3CB1 /* BarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
+		E79B17AE259B8B8D005C3CB1 /* ChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
+		E79B17AF259B8B8D005C3CB1 /* XAxis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XAxis.swift; sourceTree = "<group>"; };
+		E79B17B0259B8B8D005C3CB1 /* BarChartCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartCollectionView.swift; sourceTree = "<group>"; };
+		E79B17B1259B8B8D005C3CB1 /* YAxisScaler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YAxisScaler.swift; sourceTree = "<group>"; };
+		E79B17B2259B8B8D005C3CB1 /* YAxis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YAxis.swift; sourceTree = "<group>"; };
+		E79B17B3259B8B8D005C3CB1 /* BarChartCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartCell.swift; sourceTree = "<group>"; };
+		E79B17B4259B8B8D005C3CB1 /* GradientColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientColor.swift; sourceTree = "<group>"; };
+		E79B17B5259B8B8E005C3CB1 /* AxisBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxisBase.swift; sourceTree = "<group>"; };
 		F03294ED23F15F2FC008A36B /* Pods_Covid19Monitor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Covid19Monitor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -64,6 +119,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08659C0D62444F03A2709762 /* Pods_Covid19Monitor.framework in Frameworks */,
+				E798044B259CB778007EAA9F /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +141,25 @@
 				F03294ED23F15F2FC008A36B /* Pods_Covid19Monitor.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E798044D25A1FD0D007EAA9F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E798044E25A1FD28007EAA9F /* CountryDetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E798045B25A3775E007EAA9F /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				E798045C25A37787007EAA9F /* PageControl.swift */,
+				E798046025A377A6007EAA9F /* PageViewController.swift */,
+				E798046E25A37D91007EAA9F /* PagesView.swift */,
+				E798047325A37DAE007EAA9F /* PagesViewContent.swift */,
+			);
+			path = Tutorial;
 			sourceTree = "<group>";
 		};
 		E79B16F62594D585005C3CB1 = {
@@ -111,7 +186,6 @@
 				E79B17122594D598005C3CB1 /* Core */,
 				E79B17362595003C005C3CB1 /* Features */,
 				E79B17022594D585005C3CB1 /* Covid19MonitorApp.swift */,
-				E79B17042594D585005C3CB1 /* MainTabView.swift */,
 				E79B17062594D588005C3CB1 /* Assets.xcassets */,
 				E79B170B2594D588005C3CB1 /* Info.plist */,
 				E79B17082594D588005C3CB1 /* Preview Content */,
@@ -155,6 +229,7 @@
 				E79B1771259A45EB005C3CB1 /* CountryInfo.swift */,
 				E79B17242594E755005C3CB1 /* Constants.swift */,
 				E79B17272594F1AD005C3CB1 /* Statistics.swift */,
+				E798045225A1FD9C007EAA9F /* CountryDetails.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -171,6 +246,9 @@
 		E79B17362595003C005C3CB1 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				E798045B25A3775E007EAA9F /* Tutorial */,
+				E79B17A5259B8B7F005C3CB1 /* BarGraph */,
+				E79B1793259B780F005C3CB1 /* Common */,
 				E79B1768259A3AC0005C3CB1 /* Countries */,
 				E79B174E2598B224005C3CB1 /* CountryDetails */,
 				E79B173725950050005C3CB1 /* WorldStatistics */,
@@ -208,6 +286,7 @@
 		E79B174E2598B224005C3CB1 /* CountryDetails */ = {
 			isa = PBXGroup;
 			children = (
+				E798044D25A1FD0D007EAA9F /* ViewModel */,
 				E79B174F2598B24E005C3CB1 /* View */,
 			);
 			path = CountryDetails;
@@ -232,6 +311,7 @@
 		E79B1768259A3AC0005C3CB1 /* Countries */ = {
 			isa = PBXGroup;
 			children = (
+				E79B1775259A5560005C3CB1 /* View */,
 				E79B1769259A3AD1005C3CB1 /* ViewModel */,
 			);
 			path = Countries;
@@ -243,6 +323,49 @@
 				E79B176A259A3AE6005C3CB1 /* CountriesViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E79B1775259A5560005C3CB1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E79B177B259A56E0005C3CB1 /* CountriesView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E79B1793259B780F005C3CB1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E79B177F259B52C2005C3CB1 /* ActivityIndicator.swift */,
+				E79B17042594D585005C3CB1 /* MainTabView.swift */,
+				E79B179F259B7864005C3CB1 /* BarGraphView.swift */,
+				E79B1795259B7823005C3CB1 /* SelectionIndicator.swift */,
+				E79B1794259B7823005C3CB1 /* SelectionLine.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		E79B17A5259B8B7F005C3CB1 /* BarGraph */ = {
+			isa = PBXGroup;
+			children = (
+				E79B17B5259B8B8E005C3CB1 /* AxisBase.swift */,
+				E79B17B3259B8B8D005C3CB1 /* BarChartCell.swift */,
+				E79B17B0259B8B8D005C3CB1 /* BarChartCollectionView.swift */,
+				E79B17AD259B8B8D005C3CB1 /* BarChartView.swift */,
+				E79B17AB259B8B8D005C3CB1 /* BarShape.swift */,
+				E79B17AC259B8B8D005C3CB1 /* ChartConfiguration.swift */,
+				E79B17AE259B8B8D005C3CB1 /* ChartData.swift */,
+				E79B17A8259B8B8C005C3CB1 /* CoordinateSystemView.swift */,
+				E79B17A7259B8B8C005C3CB1 /* Extension+Decimals.swift */,
+				E79B17AA259B8B8D005C3CB1 /* Extension+StringSize.swift */,
+				E79B17A6259B8B8C005C3CB1 /* Extension+ViewModifiers.swift */,
+				E79B17B4259B8B8D005C3CB1 /* GradientColor.swift */,
+				E79B17AF259B8B8D005C3CB1 /* XAxis.swift */,
+				E79B17A9259B8B8D005C3CB1 /* XAxisLayout.swift */,
+				E79B17B2259B8B8D005C3CB1 /* YAxis.swift */,
+				E79B17B1259B8B8D005C3CB1 /* YAxisScaler.swift */,
+			);
+			path = BarGraph;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +386,9 @@
 			dependencies = (
 			);
 			name = Covid19Monitor;
+			packageProductDependencies = (
+				E798044A259CB778007EAA9F /* SwiftUICharts */,
+			);
 			productName = Covid19Monitor;
 			productReference = E79B16FF2594D585005C3CB1 /* Covid19Monitor.app */;
 			productType = "com.apple.product-type.application";
@@ -290,6 +416,9 @@
 				Base,
 			);
 			mainGroup = E79B16F62594D585005C3CB1;
+			packageReferences = (
+				E7980449259CB778007EAA9F /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = E79B17002594D585005C3CB1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -358,23 +487,50 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E79B17BB259B8B8E005C3CB1 /* BarShape.swift in Sources */,
+				E79B1796259B7823005C3CB1 /* SelectionLine.swift in Sources */,
 				E79B17512598B2D0005C3CB1 /* CountryDetailsView.swift in Sources */,
 				E79B17282594F1AD005C3CB1 /* Statistics.swift in Sources */,
+				E79B17C2259B8B8E005C3CB1 /* YAxis.swift in Sources */,
+				E79B17B7259B8B8E005C3CB1 /* Extension+Decimals.swift in Sources */,
+				E79B17BD259B8B8E005C3CB1 /* BarChartView.swift in Sources */,
 				E79B1765259A2CA7005C3CB1 /* BaseViewModel.swift in Sources */,
+				E798045D25A37788007EAA9F /* PageControl.swift in Sources */,
+				E79B17BF259B8B8E005C3CB1 /* XAxis.swift in Sources */,
 				E79B17052594D585005C3CB1 /* MainTabView.swift in Sources */,
+				E79B17B9259B8B8E005C3CB1 /* XAxisLayout.swift in Sources */,
+				E79B17C4259B8B8E005C3CB1 /* GradientColor.swift in Sources */,
+				E79B17B6259B8B8E005C3CB1 /* Extension+ViewModifiers.swift in Sources */,
+				E798045325A1FD9C007EAA9F /* CountryDetails.swift in Sources */,
 				E79B17032594D585005C3CB1 /* Covid19MonitorApp.swift in Sources */,
 				E79B173D25950A35005C3CB1 /* StatisticsHeaderView.swift in Sources */,
 				E79B17152594D77B005C3CB1 /* RemoteDataHandler.swift in Sources */,
+				E79B1797259B7823005C3CB1 /* SelectionIndicator.swift in Sources */,
+				E79B17C0259B8B8E005C3CB1 /* BarChartCollectionView.swift in Sources */,
 				E79B173925950066005C3CB1 /* WorldStatisticsView.swift in Sources */,
+				E79B177C259A56E0005C3CB1 /* CountriesView.swift in Sources */,
+				E79B17C5259B8B8E005C3CB1 /* AxisBase.swift in Sources */,
+				E79B17B8259B8B8E005C3CB1 /* CoordinateSystemView.swift in Sources */,
 				E79B1761259A2A77005C3CB1 /* WorldStatisticsViewModel.swift in Sources */,
 				E79B172B2594F8FB005C3CB1 /* Connectivity.swift in Sources */,
+				E798046125A377A6007EAA9F /* PageViewController.swift in Sources */,
 				E79B176B259A3AE6005C3CB1 /* CountriesViewModel.swift in Sources */,
+				E798047425A37DAE007EAA9F /* PagesViewContent.swift in Sources */,
 				E79B174025950C2E005C3CB1 /* CoutriesStatisticsView.swift in Sources */,
+				E79B17BA259B8B8E005C3CB1 /* Extension+StringSize.swift in Sources */,
+				E79B17BE259B8B8E005C3CB1 /* ChartData.swift in Sources */,
+				E798046F25A37D91007EAA9F /* PagesView.swift in Sources */,
+				E79B17C3259B8B8E005C3CB1 /* BarChartCell.swift in Sources */,
 				E79B17222594E540005C3CB1 /* Country.swift in Sources */,
 				E79B171F2594DD6A005C3CB1 /* ResponseError.swift in Sources */,
+				E79B17A0259B7864005C3CB1 /* BarGraphView.swift in Sources */,
+				E79B17C1259B8B8E005C3CB1 /* YAxisScaler.swift in Sources */,
 				E79B1772259A45EB005C3CB1 /* CountryInfo.swift in Sources */,
+				E79B1780259B52C2005C3CB1 /* ActivityIndicator.swift in Sources */,
 				E79B172F2594FA67005C3CB1 /* DataManager.swift in Sources */,
+				E79B17BC259B8B8E005C3CB1 /* ChartConfiguration.swift in Sources */,
 				E79B17252594E755005C3CB1 /* Constants.swift in Sources */,
+				E798044F25A1FD28007EAA9F /* CountryDetailsViewModel.swift in Sources */,
 				E79B17492598A6A4005C3CB1 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -566,6 +722,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E7980449259CB778007EAA9F /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E798044A259CB778007EAA9F /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E7980449259CB778007EAA9F /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E79B16F72594D585005C3CB1 /* Project object */;
 }

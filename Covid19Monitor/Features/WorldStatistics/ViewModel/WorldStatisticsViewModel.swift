@@ -17,10 +17,14 @@ class WorldStatisticsViewModel: BaseViewModel, ObservableObject {
         self.getAllStatistics()
     }
     private func getAllStatistics(){
-        dataManager.getAllStatistics().sink { (error) in
+        dataManager.getAllStatistics().sink { [weak self] (error) in
+            guard let self = self else { return }
             self.worldStatistics = Statistics()
-        } receiveValue: { (statistics) in
+            self.isLoading = false
+        } receiveValue: { [weak self] (statistics) in
+            guard let self = self else { return }
             self.worldStatistics = statistics
+            self.isLoading = false
         }.store(in: &subscriptions)
     }
 }

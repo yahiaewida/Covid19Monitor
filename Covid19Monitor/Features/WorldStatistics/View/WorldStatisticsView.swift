@@ -11,27 +11,39 @@ struct WorldStatisticsView: View {
     @ObservedObject private var viewModel = WorldStatisticsViewModel()
     @State private var selectedFilter = ""
     private var test = ["Europe", "Africa"]
+    
+//    init () {
+//        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+//        UINavigationBar.appearance().shadowImage = UIImage()
+//        UINavigationBar.appearance().backgroundColor = .clear
+//    }
+    
     var body: some View {
-        GeometryReader { reader in
-            VStack {
-                worldStatisticsView(reader: reader)
-                
-                Text("Countries Statistics")
-                    .font(.title)
-                    .padding()
-            
-                Picker("Filter",selection: $selectedFilter) {
-                    ForEach(test, id: \.self) { test in
-                        Text(test).tag(test)
+        NavigationView {
+            GeometryReader { reader in
+                VStack {
+                    if viewModel.isLoading {
+                        ProgressView()
+                    } else {
+                        worldStatisticsView(reader: reader)
+                            //.padding()
+                        Text("Countries Statistics")
+                            .font(.title)
+                            .padding()
+                        
+                        Picker("Filter",selection: $selectedFilter) {
+                            ForEach(test, id: \.self) { test in
+                                Text(test).tag(test)
+                            }
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
+                        .padding([.leading, .trailing, .bottom])
+                        
+                        CoutriesStatisticsView()
                     }
                 }
-                .pickerStyle(SegmentedPickerStyle())
-                .padding([.leading, .trailing, .bottom])
-                
-                CoutriesStatisticsView()
             }
-        }
-        .padding()        
+        }//.navigationBarHidden(true)
     }
     
     func worldStatisticsView(reader: GeometryProxy) -> some View {
@@ -40,6 +52,7 @@ struct WorldStatisticsView: View {
             .font(.title)
             .bold()
             .padding([.top, .trailing, .leading])
+            .padding([.top])
             .padding([.bottom], 5)
         
         return StatisticsHeaderView(reader: reader,backgroundColor: Color.darkPurple, fontColor: Color.white, upperHeader: upperHeader, isShadowRequired: true, height: 160, confirmed: viewModel.worldStatistics.cases , recovered: viewModel.worldStatistics.recovered , deaths: viewModel.worldStatistics.deaths)

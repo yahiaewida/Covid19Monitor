@@ -18,4 +18,8 @@ struct DataManager {
     func getAllCountriesData() -> PassthroughSubject<Array<Country>,ResponseError> {
         return remoteDataHandler.request(uri: Urls.COUNTRIES_STATISTICS)
     }
+    
+    func getCountryDetails(countryName: String) -> PassthroughSubject<CountryDetails,ResponseError>  {
+        return remoteDataHandler.request(uri: Urls.COUNTRY_DETAILS + countryName + Urls.SEVEN_DAYS_QUERY)
+    }
 }
