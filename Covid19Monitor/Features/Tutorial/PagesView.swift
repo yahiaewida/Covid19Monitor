@@ -20,8 +20,9 @@ struct PagesView<Page: View>: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             PageViewController(controllers: viewControllers, currentPage: $currentPage)
+                .ignoresSafeArea()
             PageControl(pageCount: viewControllers.count, currentPage: $currentPage)
                 .padding(.trailing)
-        }
+        } 
     }
 }

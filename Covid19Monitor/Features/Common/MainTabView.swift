@@ -31,34 +31,24 @@ struct MainTabView: View {
         
     }
     
-    func test() {
-        let publisher = DataManager().getAllStatistics()
-        publisher.subscribe(on: DispatchQueue.main).sink { (error) in
-            text = "error"
-        } receiveValue: { (statistics) in
-            text = String(statistics.deaths)
-        }
-        
-    }
-    
      func makeOnboardingViews() -> [PageViewContent] {
         
         return [
             PageViewContent(
                 model: PageViewContentModel(
                     image: Image("01"),
-                    title: Text(verbatim: "Title"),
-                    description: Text(verbatim: "subtitle and description"))
+                    title: Text(verbatim: "Handwashing"),
+                    description: Text(verbatim: "Rub hands together and scrub everywhere."))
             ), PageViewContent(
                 model: PageViewContentModel(
                     image: Image("02"),
-                    title: Text(verbatim: "Title"),
-                    description: Text(verbatim: "subtitle and description"))
+                    title: Text(verbatim: "Face Mask"),
+                    description: Text(verbatim: "Wearing a face mask in public helps prevent the spread of COVID-19"))
             ), PageViewContent(
                 model: PageViewContentModel(
                     image: Image("04"),
-                    title: Text(verbatim: "Title"),
-                    description: Text(verbatim: "subtitle and description"))
+                    title: Text(verbatim: "Home insulation"),
+                    description: Text(verbatim: "Stay at home for 14 days if you feel sick"))
             )
         ]
     }

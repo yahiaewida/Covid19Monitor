@@ -18,28 +18,32 @@ struct PageViewContent : View {
     var model: PageViewContentModel
     
     var body: some View {
-        VStack(alignment: .center, spacing: 15) {
-            model.image
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .background(Color.white)
-                .cornerRadius(30)
-                .padding()
+        ZStack {
+            Rectangle()
+                .fill(Color.lightPurple)
+                .ignoresSafeArea()
+            
+            VStack(alignment: .center, spacing: 15) {
+                model.image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .background(Color.white)
+                    .cornerRadius(30)
+                    .padding()
+                    
                 
-            
-            model.title
-                .font(Font.system(size: 32, design: .rounded))
-                .foregroundColor(.primary)
-            
-            model.description
-                .font(.body)
-                .foregroundColor(.secondary)
-                .lineLimit(nil)
-                .padding()
+                model.title
+                    .font(Font.system(size: 32, design: .rounded))
+                    .foregroundColor(Color.white)
+                
+                model.description
+                    .font(.body)
+                    .foregroundColor(Color.white)
+                    .lineLimit(nil)
+                    .padding()
+            }
+            .padding()
         }
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-        .padding()
-        .background(Color.lightPurple)
     }
 }
 
