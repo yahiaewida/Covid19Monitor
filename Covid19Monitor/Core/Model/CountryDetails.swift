@@ -9,7 +9,7 @@ import Foundation
 
 
 struct CountryDetails: Codable {
-    var country: String
+    var country: String?
     var timeline: Timeline
     
     init() {

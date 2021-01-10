@@ -35,8 +35,13 @@ struct MainTabView: View {
                     .tabItem {
                     Image(systemName: "square.stack.fill")
                     Text(verbatim: "Subscriptions")
-                }.tag(0)
+                }.tag(2)
             
+                StatisticsDetails()
+                    .tabItem {
+                    Image(systemName: "square.stack.fill")
+                    Text(verbatim: "Statistics")
+                }.tag(3)
             }
             
             
@@ -72,6 +77,6 @@ struct MainTabView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainTabView(isTutorialRequired: true)
+        MainTabView(isTutorialRequired: isTutorialRequired())
     }
 }

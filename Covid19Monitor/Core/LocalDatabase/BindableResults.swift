@@ -30,9 +30,6 @@ class BindableResults<Element>: ObservableObject where Element: RealmCollectionV
 }
 
 
-// @ObservedObject var objects = BindableResults(results: try! Realm().objects(object.self))
-
-
 final class ChannelsData: ObservableObject {
     @Published var channels: [CountryRealm]
     private var channelsToken: NotificationToken?

@@ -13,7 +13,6 @@ class DataManager {
     private let remoteDataHandler = RemoteDataHandler()
     private let localDataHandler = LocalDataHandler()
     private var countriesToken: NotificationToken?
-
     
     func getAllStatistics() -> PassthroughSubject<Statistics,ResponseError> {
         return remoteDataHandler.request(uri: Urls.ALL_STATISTICS)
@@ -24,10 +23,14 @@ class DataManager {
     }
     
     func getCountryDetails(countryName: String) -> PassthroughSubject<CountryDetails,ResponseError>  {
+        if countryName == "all" {
+            print("test")
+        }
         return remoteDataHandler.request(uri: Urls.COUNTRY_DETAILS + countryName + Urls.SEVEN_DAYS_QUERY)
     }
     
     func addSubscribedCountry(country: CountryRealm) -> Bool {
+        country.isSubscribed = true
         return localDataHandler.addSubscribedCountry(country: country)
     }
     

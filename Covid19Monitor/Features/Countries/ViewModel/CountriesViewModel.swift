@@ -35,7 +35,6 @@ class CountriesViewModel: BaseViewModel, ObservableObject {
                 }
                 combinedResult.append(apiCountry)
             }
-            
             self.countriesData = combinedResult
         }.store(in: &subscriptions)
     }

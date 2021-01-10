@@ -24,7 +24,6 @@ struct Country: Codable {
     var tests: Int64? = 0
     var testsPerOneMillion: Double? = 0.0
     var isSubscribed: Bool? = false
-    var flag: String? = ""
     var countryInfo: CountryInfo? = CountryInfo()
     
     func toRealmObject() -> CountryRealm{
@@ -36,13 +35,13 @@ struct Country: Codable {
         countryRealm.todayCases = todayCases ?? 0
         countryRealm.recovered = recovered ?? 0
         countryRealm.active = active ?? 0
+        countryRealm.deaths = deaths ?? 0
         countryRealm.critical = critical ?? 0
         countryRealm.casesPerOneMillion = casesPerOneMillion ?? 0
         countryRealm.deathsPerOneMillion = deathsPerOneMillion ?? 0
         countryRealm.tests = tests ?? 0
         countryRealm.testsPerOneMillion = testsPerOneMillion ?? 0
         countryRealm.isSubscribed = isSubscribed ?? false
-        countryRealm.flag = flag ?? ""
         countryRealm.countryInfo = (countryInfo ?? CountryInfo()).toRealmObject()
         return countryRealm
     }
@@ -65,7 +64,6 @@ class CountryRealm: Object {
     @objc dynamic var tests: Int64 = 0
     @objc dynamic var testsPerOneMillion: Double = 0.0
     @objc dynamic var isSubscribed: Bool = false
-    @objc dynamic var flag: String = ""
     @objc dynamic var countryInfo: CountryInfoRealm? = CountryInfoRealm()
     
     override class func primaryKey() -> String? {
@@ -82,12 +80,12 @@ class CountryRealm: Object {
         countryObj.recovered = recovered
         countryObj.active = active
         countryObj.critical = critical
+        countryObj.deaths = deaths
         countryObj.casesPerOneMillion = casesPerOneMillion
         countryObj.deathsPerOneMillion = deathsPerOneMillion
         countryObj.tests = tests
         countryObj.testsPerOneMillion = testsPerOneMillion
         countryObj.isSubscribed = isSubscribed
-        countryObj.flag = flag
         countryObj.countryInfo = (countryInfo ?? CountryInfoRealm()).toCountryInfoObject()
         return countryObj
     }

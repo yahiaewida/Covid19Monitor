@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		08659C0D62444F03A2709762 /* Pods_Covid19Monitor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F03294ED23F15F2FC008A36B /* Pods_Covid19Monitor.framework */; };
+		E784211A25AB5D0C003F2609 /* StatisticsDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E784211925AB5D0C003F2609 /* StatisticsDetails.swift */; };
+		E784212C25AB664D003F2609 /* SunburstDiagram in Frameworks */ = {isa = PBXBuildFile; productRef = E784212B25AB664D003F2609 /* SunburstDiagram */; };
 		E798044B259CB778007EAA9F /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = E798044A259CB778007EAA9F /* SwiftUICharts */; };
 		E798044F25A1FD28007EAA9F /* CountryDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E798044E25A1FD28007EAA9F /* CountryDetailsViewModel.swift */; };
 		E798045325A1FD9C007EAA9F /* CountryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E798045225A1FD9C007EAA9F /* CountryDetails.swift */; };
@@ -47,6 +49,7 @@
 /* Begin PBXFileReference section */
 		3C4365418EDE98F1DB1AA9AA /* Pods-Covid19Monitor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid19Monitor.release.xcconfig"; path = "Target Support Files/Pods-Covid19Monitor/Pods-Covid19Monitor.release.xcconfig"; sourceTree = "<group>"; };
 		795AB8941E9123A13083FB48 /* Pods-Covid19Monitor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid19Monitor.debug.xcconfig"; path = "Target Support Files/Pods-Covid19Monitor/Pods-Covid19Monitor.debug.xcconfig"; sourceTree = "<group>"; };
+		E784211925AB5D0C003F2609 /* StatisticsDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsDetails.swift; sourceTree = "<group>"; };
 		E798044E25A1FD28007EAA9F /* CountryDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailsViewModel.swift; sourceTree = "<group>"; };
 		E798045225A1FD9C007EAA9F /* CountryDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetails.swift; sourceTree = "<group>"; };
 		E798045C25A37787007EAA9F /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
@@ -90,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E784212C25AB664D003F2609 /* SunburstDiagram in Frameworks */,
 				08659C0D62444F03A2709762 /* Pods_Covid19Monitor.framework in Frameworks */,
 				E798044B259CB778007EAA9F /* SwiftUICharts in Frameworks */,
 			);
@@ -277,6 +281,7 @@
 				E79B173825950065005C3CB1 /* WorldStatisticsView.swift */,
 				E79B173C25950A35005C3CB1 /* StatisticsHeaderView.swift */,
 				E79B173F25950C2E005C3CB1 /* CoutriesStatisticsView.swift */,
+				E784211925AB5D0C003F2609 /* StatisticsDetails.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -334,9 +339,9 @@
 		E79B1793259B780F005C3CB1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E79B17042594D585005C3CB1 /* MainTabView.swift */,
 				E79B17482598A6A3005C3CB1 /* Extensions.swift */,
 				E79B177F259B52C2005C3CB1 /* ActivityIndicator.swift */,
-				E79B17042594D585005C3CB1 /* MainTabView.swift */,
 				E798047725A3991D007EAA9F /* SegmentedPicker.swift */,
 			);
 			path = Common;
@@ -362,6 +367,7 @@
 			name = Covid19Monitor;
 			packageProductDependencies = (
 				E798044A259CB778007EAA9F /* SwiftUICharts */,
+				E784212B25AB664D003F2609 /* SunburstDiagram */,
 			);
 			productName = Covid19Monitor;
 			productReference = E79B16FF2594D585005C3CB1 /* Covid19Monitor.app */;
@@ -392,6 +398,7 @@
 			mainGroup = E79B16F62594D585005C3CB1;
 			packageReferences = (
 				E7980449259CB778007EAA9F /* XCRemoteSwiftPackageReference "ChartView" */,
+				E784212A25AB664D003F2609 /* XCRemoteSwiftPackageReference "SwiftSunburstDiagram" */,
 			);
 			productRefGroup = E79B17002594D585005C3CB1 /* Products */;
 			projectDirPath = "";
@@ -464,6 +471,7 @@
 				E79B17512598B2D0005C3CB1 /* CountryDetailsView.swift in Sources */,
 				E79B17282594F1AD005C3CB1 /* Statistics.swift in Sources */,
 				E79B1765259A2CA7005C3CB1 /* BaseViewModel.swift in Sources */,
+				E784211A25AB5D0C003F2609 /* StatisticsDetails.swift in Sources */,
 				E798049625A4E814007EAA9F /* SubscriptionsView.swift in Sources */,
 				E798049B25A4E840007EAA9F /* SubscriptionsViewModel.swift in Sources */,
 				E798045D25A37788007EAA9F /* PageControl.swift in Sources */,
@@ -684,6 +692,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E784212A25AB664D003F2609 /* XCRemoteSwiftPackageReference "SwiftSunburstDiagram" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lludo/SwiftSunburstDiagram.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
 		E7980449259CB778007EAA9F /* XCRemoteSwiftPackageReference "ChartView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AppPear/ChartView.git";
@@ -695,6 +711,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E784212B25AB664D003F2609 /* SunburstDiagram */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E784212A25AB664D003F2609 /* XCRemoteSwiftPackageReference "SwiftSunburstDiagram" */;
+			productName = SunburstDiagram;
+		};
 		E798044A259CB778007EAA9F /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E7980449259CB778007EAA9F /* XCRemoteSwiftPackageReference "ChartView" */;

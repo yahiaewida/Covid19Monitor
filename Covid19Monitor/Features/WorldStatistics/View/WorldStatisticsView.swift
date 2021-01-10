@@ -12,12 +12,6 @@ struct WorldStatisticsView: View {
     @State private var selectedFilter = ""
     private var test = ["Europe", "Africa"]
     
-//    init () {
-//        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
-//        UINavigationBar.appearance().shadowImage = UIImage()
-//        UINavigationBar.appearance().backgroundColor = .clear
-//    }
-    
     var body: some View {
         NavigationView {
             GeometryReader { reader in
@@ -25,8 +19,10 @@ struct WorldStatisticsView: View {
                     if viewModel.isLoading {
                         ProgressView()
                     } else {
-                        worldStatisticsView(reader: reader)
-                            //.padding()
+                        NavigationLink(destination: CountryDetailsView(viewModel: CountryDetailsViewModel(countryName: "all"), country: Country(country: "all"))) {
+                            worldStatisticsView(reader: reader)
+                        }
+                        
                         Text("Countries Statistics")
                             .font(.title)
                             .padding()
@@ -43,7 +39,7 @@ struct WorldStatisticsView: View {
                     }
                 }
             }
-        }//.navigationBarHidden(true)
+        }
     }
     
     func worldStatisticsView(reader: GeometryProxy) -> some View {

@@ -9,8 +9,16 @@ import Foundation
 import RealmSwift
 import Combine
 
+func isTutorialRequired() -> Bool {
+    let value = UserDefaults().bool(forKey: "isTutorialRequired")
+    return value
+}
+func setTutorialRequired(to value: Bool) {
+    UserDefaults().setValue(value, forKey: "isTutorialRequired")
+}
+
 class LocalDataHandler {
-    let realm = try! Realm()
+    private let realm = try! Realm()
     
     func addSubscribedCountry(country: CountryRealm) -> Bool {
         var result = false
@@ -26,21 +34,24 @@ class LocalDataHandler {
     }
     
     func removeSubscribedCountry(country: CountryRealm) -> Bool {
+        let realmObject = realm.objects(CountryRealm.self).filter("country = %@", country.country).first
         var result = false
-        do {
-            try realm.write {
-                realm.delete(country)
-                result = true
+        if let realmObject = realmObject {
+            do {
+                try realm.write {
+                    realm.delete(realmObject)
+                    result = true
+                }
+            }  catch {
+                result = false
             }
-        }  catch {
-            result = false
         }
         return result
     }
     
-    
     func getSubscribedCountries() -> Results<CountryRealm> {
          realm.objects(CountryRealm.self)
     }
-    
 }
+
+

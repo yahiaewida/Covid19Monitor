@@ -48,6 +48,7 @@ struct PageViewContent : View {
                     if model.isLastPage {
                         Button(action: {
                             isTutorialRequired = false
+                            setTutorialRequired(to: false)
                         }, label: {
                             Text("Getting Started")
                                 .font(Font.system(size: 16))
