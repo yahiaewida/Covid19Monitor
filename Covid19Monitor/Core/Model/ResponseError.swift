@@ -10,11 +10,11 @@ import Foundation
 
 import Foundation
 
-struct ResponseError: Error, Codable{
+struct ResponseError: Error, Codable {
     var message: String
 }
 
-enum ErrorStatusCode : Int{
+enum ErrorStatusCode: Int {
     case BAD_REQUEST = 400
     case NOT_FOUND = 404
     case REQUEST_TIMEOUT = 408
@@ -22,7 +22,7 @@ enum ErrorStatusCode : Int{
     case NO_INTERNET_CONNECTION = 503
     case EMPTY_RESPONSE = 204
     
-    var errorMessage : ErrorMessage{
+    var errorMessage: ErrorMessage {
         switch self {
         case .BAD_REQUEST:
             return .BAD_REQUEST
@@ -40,7 +40,7 @@ enum ErrorStatusCode : Int{
     }
 }
 
-enum ErrorMessage : String{
+enum ErrorMessage: String {
     case BAD_REQUEST = "Bad Request"
     case NOT_FOUND = "Not Found"
     case REQUEST_TIMEOUT = "Request Timeout"
@@ -51,3 +51,9 @@ enum ErrorMessage : String{
     case UNKNOWN_ERROR = "Unknown Error"
 }
 
+enum LocalErrorMessage: String {
+    case INSERT_FALIURE = "Failed to insert the object"
+    case UPDATE_FALIURE = "Failed to update the object"
+    case RETRIEVE_FALIURE = "Failed to retrieve the objects"
+    case DELETE_FALIURE = "Failed to delete the objects"
+}

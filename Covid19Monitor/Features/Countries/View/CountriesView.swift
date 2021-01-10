@@ -23,8 +23,7 @@ struct CountriesView: View {
     
     var body: some View {
         GeometryReader { reader in
-            VStack {
-                
+            VStack {                
                 SearchBar(text: $searchText)
                     .padding()
                 Picker("Filter",selection: $selectedFilter) {
@@ -44,9 +43,7 @@ struct CountriesView: View {
                 }
                 .frame(width: reader.size.width)                
             }
-           
         }
-        
     }
     
     private func renderCountriesStatistics(reader : GeometryProxy) -> AnyView {

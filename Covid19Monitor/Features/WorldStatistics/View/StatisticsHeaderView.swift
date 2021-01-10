@@ -78,7 +78,7 @@ struct StatisticsHeaderView_Previews: PreviewProvider {
     
     static var previews: some View {
         GeometryReader { reader in
-            StatisticsHeaderView(reader: reader, backgroundColor: Color.lightGray, fontColor: Color.black, upperHeader: Text("Egypt") , height: 130,confirmed: 32323, recovered: 23232, deaths: 2323)
+            StatisticsHeaderView(reader: reader, backgroundColor: Color.lightGray, fontColor: Color.primary, upperHeader: Text("Egypt") , height: 130,confirmed: 32323, recovered: 23232, deaths: 2323)
         }
     }
 }

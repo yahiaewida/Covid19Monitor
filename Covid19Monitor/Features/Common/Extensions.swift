@@ -26,3 +26,26 @@ extension UINavigationController {
         navigationBar.isHidden = true
     }
 }
+
+extension Array where Element == Country{
+    func firstIndex(of element :Element) -> Int?{
+        for index in 0..<self.count{
+            if self[index].country == element.country{
+                return index
+            }
+        }
+        return nil
+    }
+}
+
+extension Array  where Element == CountryRealm {
+    func toCountryArray() -> [Country] {
+        var countriesArray = [Country]()
+        
+        self.forEach { countryRealm in
+            countriesArray.append(countryRealm.toCountryObject())
+        }
+        
+        return countriesArray
+    }
+}

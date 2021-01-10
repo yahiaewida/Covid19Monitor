@@ -10,14 +10,22 @@ import Foundation
 import Combine
 
 class CountryDetailsViewModel: BaseViewModel, ObservableObject {
-    private let dataManager = DataManager()
     @Published private(set) var countryDetails = CountryDetails()
-   
+    @Published private(set) var isSubscriptionsDone = false
+    
     init (countryName name: String) {
         super.init()
         if !name.isEmpty {
             self.getCountryDetails(countryName: name)
         }
+    }
+    
+    func subscribeTo(country: Country) {
+        isSubscriptionsDone = dataManager.addSubscribedCountry(country: country.toRealmObject())
+    }
+    
+    func removeSubscription(from country: Country) {
+        isSubscriptionsDone = !(dataManager.removeSubscribedCountry(country: country.toRealmObject()))
     }
     
     private func getCountryDetails(countryName name: String){

@@ -8,20 +8,13 @@
 import SwiftUI
 import SwiftUICharts
 
+
 struct CountryDetailsView: View {
     @ObservedObject var viewModel: CountryDetailsViewModel
     @State private var selectedStatistics = "Country"
     @State private var selectedTime = ""
     @State var country: Country
     @Environment(\.presentationMode) private var presentationMode
-
-    //    init() {
-//        UISegmentedControl.appearance().selectedSegmentTintColor = .white
-//        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white,.font: UIFont.systemFont(ofSize: 16)], for: .normal)
-//        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor(cgColor: Color.lightPurple.cgColor!),.font: UIFont.systemFont(ofSize: 16)], for: .selected)
-//        UISegmentedControl.appearance().backgroundColor = UIColor(cgColor: Color.lightPurple.cgColor!)
-//        UIScrollView.appearance().bounces = false
-//    }
     
     var body: some View {
         return GeometryReader { reader in
@@ -48,24 +41,26 @@ struct CountryDetailsView: View {
                                 .foregroundColor(.white)
                                 .font(.title)
                                 .truncationMode(.tail)
-                                
                             
                             Spacer()
-                            Image((country.isSubscribed ?? false) ? "bell_subscribed" : "bell_unsubscribed")
-                        }
-                        .padding([.leading, .trailing,[.bottom]], 20)
-
                             
-//                        Picker("Filter",selection: $selectedStatistics) {
-//                            ForEach(test, id: \.self) { test in
-//                                Text(test).tag(test)
-//                            }
-//                        }
-//                        .padding()
-//                        .pickerStyle(SegmentedPickerStyle())
-//                        .frame(width: UIScreen.main.bounds.width - 50)
-//                        .scaledToFill()
-//
+                            Button(action: {
+                                
+                                if country.isSubscribed ?? false {
+                                    viewModel.removeSubscription(from: country)
+                                } else {
+                                    viewModel.subscribeTo(country: country)
+                                }
+                                
+                                country.isSubscribed = viewModel.isSubscriptionsDone
+                                
+                            }, label: {
+                                Image((country.isSubscribed ?? false) ? "bell_subscribed" : "bell_unsubscribed")
+                            })                            
+                        }
+                        .padding([.leading, .trailing], 20)
+                        
+                        SegmentedPicker(selectedStatistics: $selectedStatistics, pickerValues: ["Country","Global"])
                         
                         HStack {
                             StatisticsSquare(title: "Affected", value: String(country.cases ?? 0), fillColor: Color.orange)
@@ -112,6 +107,7 @@ struct StatisticsSquare: View {
     var title: String
     var value: String
     var fillColor: Color
+    
     var body: some View {
         ZStack (alignment: .topLeading) {
             Rectangle()
@@ -123,13 +119,12 @@ struct StatisticsSquare: View {
                 .padding(15)
             
             Text(value)
-                .lineLimit(2)
-                .minimumScaleFactor(0.7)
+                .lineLimit(1)
+                .minimumScaleFactor(0.5)
                 .font(.title2)
                 .foregroundColor(.white)
                 .padding([.top],60)
                 .padding([.leading, .trailing])
-            
         }
     }
 }

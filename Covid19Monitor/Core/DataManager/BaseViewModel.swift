@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 class BaseViewModel {
+    let dataManager = DataManager()
     var subscriptions: [AnyCancellable] = []
     @Published var isLoading = true
     

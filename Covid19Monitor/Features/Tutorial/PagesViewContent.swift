@@ -11,11 +11,13 @@ struct PageViewContentModel {
     var image: Image
     var title: Text
     var description: Text
+    var isLastPage : Bool = false
 }
 
 struct PageViewContent : View {
     
     var model: PageViewContentModel
+    @Binding var isTutorialRequired : Bool
     
     var body: some View {
         ZStack {
@@ -30,8 +32,7 @@ struct PageViewContent : View {
                     .background(Color.white)
                     .cornerRadius(30)
                     .padding()
-                    
-                
+                                    
                 model.title
                     .font(Font.system(size: 32, design: .rounded))
                     .foregroundColor(Color.white)
@@ -41,6 +42,21 @@ struct PageViewContent : View {
                     .foregroundColor(Color.white)
                     .lineLimit(nil)
                     .padding()
+                
+                HStack(alignment: .bottom) {
+                    Spacer()
+                    if model.isLastPage {
+                        Button(action: {
+                            isTutorialRequired = false
+                        }, label: {
+                            Text("Getting Started")
+                                .font(Font.system(size: 16))
+                                .foregroundColor(Color.white)                                
+                        })
+                        .padding([.trailing],10)
+                        
+                    }
+                }.padding([.top], 30)
             }
             .padding()
         }
@@ -53,6 +69,6 @@ struct OnboardingView_Previews : PreviewProvider {
             model: PageViewContentModel(
                 image: Image("News1"),
                 title: Text(verbatim: "Preview"),
-                description: Text(verbatim: "Content")))
+                description: Text(verbatim: "Content")), isTutorialRequired: .constant(true))
     }
 }

@@ -11,7 +11,7 @@ import SwiftUI
 struct Covid19MonitorApp: App {
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+            MainTabView(isTutorialRequired: false)
         }
     }
 }

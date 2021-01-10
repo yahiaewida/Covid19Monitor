@@ -7,10 +7,14 @@
 
 import Foundation
 import Combine
+import RealmSwift
 
-struct DataManager {
+class DataManager {
     private let remoteDataHandler = RemoteDataHandler()
-  
+    private let localDataHandler = LocalDataHandler()
+    private var countriesToken: NotificationToken?
+
+    
     func getAllStatistics() -> PassthroughSubject<Statistics,ResponseError> {
         return remoteDataHandler.request(uri: Urls.ALL_STATISTICS)
     }
@@ -21,5 +25,26 @@ struct DataManager {
     
     func getCountryDetails(countryName: String) -> PassthroughSubject<CountryDetails,ResponseError>  {
         return remoteDataHandler.request(uri: Urls.COUNTRY_DETAILS + countryName + Urls.SEVEN_DAYS_QUERY)
+    }
+    
+    func addSubscribedCountry(country: CountryRealm) -> Bool {
+        return localDataHandler.addSubscribedCountry(country: country)
+    }
+    
+    func removeSubscribedCountry(country: CountryRealm) -> Bool {
+        return localDataHandler.removeSubscribedCountry(country: country)
+    }
+  
+    func getSubscribedCountries() -> PassthroughSubject<[Country],ResponseError> {
+        let countrySubject = PassthroughSubject<[Country],ResponseError>()
+        let data = localDataHandler.getSubscribedCountries()
+        countriesToken = data.observe { _ in
+            countrySubject.send(Array(data).toCountryArray())
+        }
+        return countrySubject
+    }
+    
+    deinit {
+        countriesToken?.invalidate()
     }
 }

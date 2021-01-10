@@ -9,7 +9,6 @@ import Foundation
 import Combine
 
 class WorldStatisticsViewModel: BaseViewModel, ObservableObject {
-    private let dataManager = DataManager()
     @Published private(set) var worldStatistics = Statistics()
     
     override init () {

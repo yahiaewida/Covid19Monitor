@@ -9,26 +9,34 @@
 import Foundation
 import Combine
 
-class CountriesViewModel: BaseViewModel, ObservableObject {
-    private let dataManager = DataManager()
+class CountriesViewModel: BaseViewModel, ObservableObject {    
     @Published private(set) var countriesData = [Country]()
     @Published private(set) var continents = [String]()   
     
     override init () {
         super.init()
-        self.getAllCourntriesData()
+        self.getAllCountriesData()
     }
     
-    private func getAllCourntriesData(){
-        dataManager.getAllCountriesData().sink { [weak self] (error) in
+    private func getAllCountriesData() {
+        dataManager.getAllCountriesData().combineLatest(dataManager.getSubscribedCountries()).sink { [weak self] (error) in
             self?.countriesData = [Country]()
             self?.isLoading = false
-        } receiveValue: { [weak self ](countries) in
+        } receiveValue: { [weak self ](apiCountries,subscribedCountries) in
             guard let self = self else { return }
             self.isLoading = false
-            self.countriesData = countries
-            self.continents = Array<String>(Set(countries.map { ($0.continent ?? "") }))
+            var combinedResult = [Country]()
+            apiCountries.forEach { country in
+                var apiCountry =  country
+                subscribedCountries.forEach { subscribedCountry in
+                    if subscribedCountry.country == apiCountry.country {
+                        apiCountry.isSubscribed = true
+                    }
+                }
+                combinedResult.append(apiCountry)
+            }
             
+            self.countriesData = combinedResult
         }.store(in: &subscriptions)
     }
 }

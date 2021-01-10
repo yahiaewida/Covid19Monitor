@@ -16,7 +16,7 @@ class RemoteDataHandler{
         var urlString = Urls.BASE_URL
         urlString.append(uri)
         
-        //if Connectivity.isConnected() {
+        if Connectivity.isConnected() {
             let dataRequest = AF.request(urlString, method: methodType ,parameters: parameters)
             dataRequest.responseJSON(completionHandler: {(response) in
                 if let data = response.data{
@@ -38,24 +38,9 @@ class RemoteDataHandler{
                     resultSubject.send(completion: .failure(ResponseError(message: error.localizedDescription)))
                 }
             })
-//        } else {
-//            resultSubject.send(completion: .failure(ResponseError(message: ErrorMessage.NO_INTERNET_CONNECTION.rawValue)))
-//        }
+        } else {
+            resultSubject.send(completion: .failure(ResponseError(message: ErrorMessage.NO_INTERNET_CONNECTION.rawValue)))
+        }
         return resultSubject
     }
 }
-
-
-//extension Dictionary where Key == String, Value == String {
-//    func toHtppHeaders() -> [HTTPHeaders] {
-//        var httpHeaders = [HTTPHeaders]()
-//
-//        self.forEach { key, value in
-//            if !key.isEmpty && !value.isEmpty {
-//                httpHeaders.append(HTTPHeader(name: key, value: value)
-//            }
-//        }
-//
-//        return httpHeaders
-//    }
-//}

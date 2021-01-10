@@ -44,7 +44,7 @@ struct CoutriesStatisticsView: View {
 //                .padding(5)
                 
             Text(country.country ?? "")
-                .foregroundColor(.black)
+                .foregroundColor(.primary)
                 .font(Font.system(size: 22))
                 .bold()
                 
