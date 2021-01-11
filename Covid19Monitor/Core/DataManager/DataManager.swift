@@ -26,6 +26,10 @@ class DataManager {
         return remoteDataHandler.request(uri: Urls.COUNTRY_DETAILS + countryName + Urls.SEVEN_DAYS_QUERY)
     }
     
+    func getWorldDetails() -> PassthroughSubject<Timeline,ResponseError>  {
+        return remoteDataHandler.request(uri: Urls.COUNTRY_DETAILS + "all" + Urls.SEVEN_DAYS_QUERY)
+    }
+    
     func addSubscribedCountry(country: CountryRealm) -> Bool {
         country.isSubscribed = true
         return localDataHandler.addSubscribedCountry(country: country)

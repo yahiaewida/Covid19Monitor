@@ -37,7 +37,7 @@ struct MainTabView: View {
                     Text(verbatim: "Subscriptions")
                 }.tag(2)
             
-                StatisticsDetails()
+                StatisticsDetailsView()
                     .tabItem {
                     Image(systemName: "square.stack.fill")
                     Text(verbatim: "Statistics")

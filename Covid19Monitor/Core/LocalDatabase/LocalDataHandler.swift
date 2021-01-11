@@ -34,7 +34,7 @@ class LocalDataHandler {
     }
     
     func removeSubscribedCountry(country: CountryRealm) -> Bool {
-        let realmObject = realm.objects(CountryRealm.self).filter("country = %@", country.country).first
+        let realmObject = realm.objects(CountryRealm.self).filter("country = %@", country.country).first // must get the real object contains the values otherwise Exception would be thrown
         var result = false
         if let realmObject = realmObject {
             do {

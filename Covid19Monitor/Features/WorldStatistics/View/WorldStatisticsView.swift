@@ -10,7 +10,6 @@ import SwiftUI
 struct WorldStatisticsView: View {
     @ObservedObject private var viewModel = WorldStatisticsViewModel()
     @State private var selectedFilter = ""
-    private var test = ["Europe", "Africa"]
     
     var body: some View {
         NavigationView {
@@ -19,22 +18,14 @@ struct WorldStatisticsView: View {
                     if viewModel.isLoading {
                         ProgressView()
                     } else {
-                        NavigationLink(destination: CountryDetailsView(viewModel: CountryDetailsViewModel(countryName: "all"), country: Country(country: "all"))) {
+                        NavigationLink(destination: StatisticsDetailsView()) {
                             worldStatisticsView(reader: reader)
                         }
                         
-                        Text("Countries Statistics")
+                        Text("Top 5 Countries")
                             .font(.title)
                             .padding()
-                        
-                        Picker("Filter",selection: $selectedFilter) {
-                            ForEach(test, id: \.self) { test in
-                                Text(test).tag(test)
-                            }
-                        }
-                        .pickerStyle(SegmentedPickerStyle())
-                        .padding([.leading, .trailing, .bottom])
-                        
+                                               
                         CoutriesStatisticsView()
                     }
                 }

@@ -52,7 +52,6 @@ extension Array  where Element == CountryRealm {
     }
 }
 
-
 extension ChartColorTemplates {
     @objc open class func covid19Colors () -> [NSUIColor]
     {
