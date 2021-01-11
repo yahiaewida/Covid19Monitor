@@ -34,8 +34,7 @@ class CountryInfoRealm : Object {
     @objc dynamic var lat: Double = 0.0
     @objc dynamic var long: Double = 0.0
     @objc dynamic var flag: String = ""
-    //let owner = LinkingObjects(fromType: CountryRealm.self, property: "country")
-    
+   
     func toCountryInfoObject() -> CountryInfo {
         var countryInfo = CountryInfo()
         countryInfo.id = id

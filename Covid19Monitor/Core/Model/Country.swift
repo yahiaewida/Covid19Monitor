@@ -26,7 +26,7 @@ struct Country: Codable {
     var isSubscribed: Bool? = false
     var countryInfo: CountryInfo? = CountryInfo()
     
-    func toRealmObject() -> CountryRealm{
+    func toRealmObject() -> CountryRealm {
         let countryRealm = CountryRealm()
         countryRealm.updated = updated!
         countryRealm.country = country!
@@ -70,7 +70,7 @@ class CountryRealm: Object {
         return "country"
     }
     
-    func toCountryObject() -> Country{
+    func toCountryObject() -> Country {
         var countryObj = Country()
         countryObj.updated = updated
         countryObj.country = country

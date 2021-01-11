@@ -10,9 +10,9 @@ import Foundation
 import Combine
 
 class CountriesViewModel: BaseViewModel, ObservableObject {    
-    @Published private(set) var countriesData = [Country]()
+    @Published  var countriesData = [Country]()
     @Published private(set) var continents = [String]()   
-    
+    @Published  var originalCountriesData = [Country]()
     override init () {
         super.init()
         self.getAllCountriesData()
@@ -20,7 +20,7 @@ class CountriesViewModel: BaseViewModel, ObservableObject {
     
     private func getAllCountriesData() {
         dataManager.getAllCountriesData().combineLatest(dataManager.getSubscribedCountries()).sink { [weak self] (error) in
-            self?.countriesData = [Country]()
+            self?.originalCountriesData = [Country]()
             self?.isLoading = false
         } receiveValue: { [weak self ](apiCountries,subscribedCountries) in
             guard let self = self else { return }
@@ -35,7 +35,27 @@ class CountriesViewModel: BaseViewModel, ObservableObject {
                 }
                 combinedResult.append(apiCountry)
             }
+            self.originalCountriesData = combinedResult
             self.countriesData = combinedResult
         }.store(in: &subscriptions)
+    }
+    
+    func filterCountries(filter: String) {
+        if filter == continentsKeys[0] {
+            countriesData = originalCountriesData
+        } else {
+            countriesData = originalCountriesData.filter { country in
+                country.continent == continentsKeysMapping[filter]
+            }
+        }
+    }
+    
+    func searchCountries(matches keyword: String, filter: String) {
+        filterCountries(filter: filter)
+        if !keyword.isEmpty {
+            countriesData = originalCountriesData.filter{ country in
+                country.country?.lowercased().contains(keyword.lowercased()) ?? false
+            }            
+        }
     }
 }

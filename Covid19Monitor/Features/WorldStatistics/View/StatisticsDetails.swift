@@ -6,25 +6,40 @@
 //
 
 import SwiftUI
-import SunburstDiagram
+import Charts
 
 struct StatisticsDetails: View {
     
-    let configuration = SunburstConfiguration(nodes: [
-        Node(name: "Active", value: 10.0, backgroundColor: UIColor(Color.lightBlue)),
-        Node(name: "Death", value: 10.0, backgroundColor:  UIColor(Color.red)),
-        Node(name: "Recovered", value: 30.0, backgroundColor:  UIColor(Color.lightGreen)),
-        Node(name: "Critical", value: 50.0, backgroundColor:  UIColor(Color.lightRed))
-    ])
-    init () {
-        configuration.allowsSelection = false
-        configuration.innerRadius = 80
-    }
-    
     var body: some View {
-        SunburstView(configuration: configuration)
-            .foregroundColor(.white)
-            .font(Font.system(size: 15))
+        GeometryReader { reader in
+            
+            ScrollView(.vertical , showsIndicators: false) {
+                VStack {
+                    
+                    Text("World Statistics")
+                        .font(.title)
+                    
+                    HStack {
+                        StatisticsSquare(title: "Recovered", value: String(213123), fillColor: Color.lightGreen)
+                        
+                        StatisticsSquare(title: "Active", value: String(3213213), fillColor: Color.lightBlue)
+                        
+                        StatisticsSquare(title: "Deaths", value: String(321332), fillColor: Color.lightRed)
+                    }
+                    .padding([.leading, .trailing], 10)
+                    .frame(width: reader.size.width , height: 120)
+                    .padding([.top, .bottom], 5)
+                    
+                    
+                    PieChart(entries: [PieChartDataEntry(value: 23918513, label: "Active"), PieChartDataEntry(value: 90777731, label: "Cases") , PieChartDataEntry(value: 64914393, label: "Recovered"), PieChartDataEntry(value: 1944825, label: "Deaths")])
+                        .frame(width: reader.size.width ,height: 300)
+                        .font(Font.system(size: 12))
+                    
+                }
+                .padding([.top],20)
+            }.frame(width: reader.size.width)
+            
+        }
     }
 }
 

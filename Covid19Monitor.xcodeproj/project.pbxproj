@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		08659C0D62444F03A2709762 /* Pods_Covid19Monitor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F03294ED23F15F2FC008A36B /* Pods_Covid19Monitor.framework */; };
 		E784211A25AB5D0C003F2609 /* StatisticsDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E784211925AB5D0C003F2609 /* StatisticsDetails.swift */; };
-		E784212C25AB664D003F2609 /* SunburstDiagram in Frameworks */ = {isa = PBXBuildFile; productRef = E784212B25AB664D003F2609 /* SunburstDiagram */; };
+		E784213025AC7CE4003F2609 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = E784212F25AC7CE4003F2609 /* Charts */; };
+		E784213325AC7D1B003F2609 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E784213225AC7D1B003F2609 /* PieChart.swift */; };
+		E784213B25AC870F003F2609 /* TransactionBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E784213A25AC870F003F2609 /* TransactionBarChartView.swift */; };
+		E784213E25AC8792003F2609 /* Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E784213D25AC8792003F2609 /* Transactions.swift */; };
 		E798044B259CB778007EAA9F /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = E798044A259CB778007EAA9F /* SwiftUICharts */; };
 		E798044F25A1FD28007EAA9F /* CountryDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E798044E25A1FD28007EAA9F /* CountryDetailsViewModel.swift */; };
 		E798045325A1FD9C007EAA9F /* CountryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E798045225A1FD9C007EAA9F /* CountryDetails.swift */; };
@@ -50,6 +53,9 @@
 		3C4365418EDE98F1DB1AA9AA /* Pods-Covid19Monitor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid19Monitor.release.xcconfig"; path = "Target Support Files/Pods-Covid19Monitor/Pods-Covid19Monitor.release.xcconfig"; sourceTree = "<group>"; };
 		795AB8941E9123A13083FB48 /* Pods-Covid19Monitor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid19Monitor.debug.xcconfig"; path = "Target Support Files/Pods-Covid19Monitor/Pods-Covid19Monitor.debug.xcconfig"; sourceTree = "<group>"; };
 		E784211925AB5D0C003F2609 /* StatisticsDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsDetails.swift; sourceTree = "<group>"; };
+		E784213225AC7D1B003F2609 /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
+		E784213A25AC870F003F2609 /* TransactionBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionBarChartView.swift; sourceTree = "<group>"; };
+		E784213D25AC8792003F2609 /* Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
 		E798044E25A1FD28007EAA9F /* CountryDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailsViewModel.swift; sourceTree = "<group>"; };
 		E798045225A1FD9C007EAA9F /* CountryDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetails.swift; sourceTree = "<group>"; };
 		E798045C25A37787007EAA9F /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
@@ -93,9 +99,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E784212C25AB664D003F2609 /* SunburstDiagram in Frameworks */,
 				08659C0D62444F03A2709762 /* Pods_Covid19Monitor.framework in Frameworks */,
 				E798044B259CB778007EAA9F /* SwiftUICharts in Frameworks */,
+				E784213025AC7CE4003F2609 /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +349,9 @@
 				E79B17482598A6A3005C3CB1 /* Extensions.swift */,
 				E79B177F259B52C2005C3CB1 /* ActivityIndicator.swift */,
 				E798047725A3991D007EAA9F /* SegmentedPicker.swift */,
+				E784213225AC7D1B003F2609 /* PieChart.swift */,
+				E784213A25AC870F003F2609 /* TransactionBarChartView.swift */,
+				E784213D25AC8792003F2609 /* Transactions.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -367,7 +376,7 @@
 			name = Covid19Monitor;
 			packageProductDependencies = (
 				E798044A259CB778007EAA9F /* SwiftUICharts */,
-				E784212B25AB664D003F2609 /* SunburstDiagram */,
+				E784212F25AC7CE4003F2609 /* Charts */,
 			);
 			productName = Covid19Monitor;
 			productReference = E79B16FF2594D585005C3CB1 /* Covid19Monitor.app */;
@@ -398,7 +407,7 @@
 			mainGroup = E79B16F62594D585005C3CB1;
 			packageReferences = (
 				E7980449259CB778007EAA9F /* XCRemoteSwiftPackageReference "ChartView" */,
-				E784212A25AB664D003F2609 /* XCRemoteSwiftPackageReference "SwiftSunburstDiagram" */,
+				E784212E25AC7CE4003F2609 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = E79B17002594D585005C3CB1 /* Products */;
 			projectDirPath = "";
@@ -478,6 +487,7 @@
 				E79B17052594D585005C3CB1 /* MainTabView.swift in Sources */,
 				E798045325A1FD9C007EAA9F /* CountryDetails.swift in Sources */,
 				E79B17032594D585005C3CB1 /* Covid19MonitorApp.swift in Sources */,
+				E784213B25AC870F003F2609 /* TransactionBarChartView.swift in Sources */,
 				E79B173D25950A35005C3CB1 /* StatisticsHeaderView.swift in Sources */,
 				E79B17152594D77B005C3CB1 /* RemoteDataHandler.swift in Sources */,
 				E79B173925950066005C3CB1 /* WorldStatisticsView.swift in Sources */,
@@ -495,7 +505,9 @@
 				E79B17222594E540005C3CB1 /* Country.swift in Sources */,
 				E79B171F2594DD6A005C3CB1 /* ResponseError.swift in Sources */,
 				E79B1772259A45EB005C3CB1 /* CountryInfo.swift in Sources */,
+				E784213325AC7D1B003F2609 /* PieChart.swift in Sources */,
 				E79B1780259B52C2005C3CB1 /* ActivityIndicator.swift in Sources */,
+				E784213E25AC8792003F2609 /* Transactions.swift in Sources */,
 				E79B172F2594FA67005C3CB1 /* DataManager.swift in Sources */,
 				E79B17252594E755005C3CB1 /* Constants.swift in Sources */,
 				E798044F25A1FD28007EAA9F /* CountryDetailsViewModel.swift in Sources */,
@@ -692,12 +704,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E784212A25AB664D003F2609 /* XCRemoteSwiftPackageReference "SwiftSunburstDiagram" */ = {
+		E784212E25AC7CE4003F2609 /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/lludo/SwiftSunburstDiagram.git";
+			repositoryURL = "https://github.com/danielgindi/Charts";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.0;
+				branch = "xcode-12";
+				kind = branch;
 			};
 		};
 		E7980449259CB778007EAA9F /* XCRemoteSwiftPackageReference "ChartView" */ = {
@@ -711,10 +723,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E784212B25AB664D003F2609 /* SunburstDiagram */ = {
+		E784212F25AC7CE4003F2609 /* Charts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E784212A25AB664D003F2609 /* XCRemoteSwiftPackageReference "SwiftSunburstDiagram" */;
-			productName = SunburstDiagram;
+			package = E784212E25AC7CE4003F2609 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
 		};
 		E798044A259CB778007EAA9F /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;

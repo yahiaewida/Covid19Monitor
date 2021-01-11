@@ -22,10 +22,7 @@ class DataManager {
         return remoteDataHandler.request(uri: Urls.COUNTRIES_STATISTICS)
     }
     
-    func getCountryDetails(countryName: String) -> PassthroughSubject<CountryDetails,ResponseError>  {
-        if countryName == "all" {
-            print("test")
-        }
+    func getCountryDetails(countryName: String) -> PassthroughSubject<CountryDetails,ResponseError>  {        
         return remoteDataHandler.request(uri: Urls.COUNTRY_DETAILS + countryName + Urls.SEVEN_DAYS_QUERY)
     }
     

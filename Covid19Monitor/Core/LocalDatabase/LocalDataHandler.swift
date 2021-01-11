@@ -10,8 +10,8 @@ import RealmSwift
 import Combine
 
 func isTutorialRequired() -> Bool {
-    let value = UserDefaults().bool(forKey: "isTutorialRequired")
-    return value
+    let value = UserDefaults().object(forKey: "isTutorialRequired")
+    return (value as? Bool) ?? true
 }
 func setTutorialRequired(to value: Bool) {
     UserDefaults().setValue(value, forKey: "isTutorialRequired")
