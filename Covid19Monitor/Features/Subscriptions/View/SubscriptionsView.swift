@@ -22,14 +22,16 @@ struct SubscriptionsView: View {
                                 .listRowInsets(EdgeInsets())
                         }
                         .navigationBarTitle("", displayMode: .inline)
-                    }
+                    }.onDelete(perform: removeSubscription)
                 }
-                
                 .listStyle(PlainListStyle())
                 .frame(width: reader.size.width)
             }
         }
-       
+    }
+    
+    private func removeSubscription(at indexSet: IndexSet) {
+        viewModel.removeSubscription(from: viewModel.countriesData[Int(indexSet.first ?? 0)])
     }
     
     private func getCountryStatisticsView(reader : GeometryProxy,country: Country) -> some View {

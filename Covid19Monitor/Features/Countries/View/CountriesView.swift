@@ -42,11 +42,8 @@ struct CountriesView: View {
                     .onChange(of: selectedFilter, perform: { value in
                         viewModel.filterCountries(filter: value)
                     })
-                    
-                    //ScrollView(showsIndicators: false) {
+                                        
                     self.renderCountriesStatistics(reader : reader)
-                    //}
-                    //.frame(width: reader.size.width)
                 }
             }
         }

@@ -16,7 +16,6 @@ struct MainTabView: View {
         if isTutorialRequired {
             PagesView(self.getPageViews(), isTutorialRequired: self.$isTutorialRequired)
         } else {
-            
             TabView {
                 WorldStatisticsView()
                     .tabItem {
@@ -43,10 +42,7 @@ struct MainTabView: View {
                     Text(verbatim: "Statistics")
                 }.tag(3)
             }
-            
-            
         }
-        
     }
     
     func getPageViews() -> [PageViewContent] {

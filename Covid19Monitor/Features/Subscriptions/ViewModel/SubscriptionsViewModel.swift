@@ -10,11 +10,10 @@ import RealmSwift
 
 class SubscriptionsViewModel: BaseViewModel , ObservableObject {
     @Published var countriesData: [Country] = [Country]()
-    private var countriesToken: NotificationToken?
     
     override init() {
         super.init()
-        getSubscribedCountries()
+        getSubscribedCountries() 
     }
     
     private func getSubscribedCountries() {
@@ -28,7 +27,7 @@ class SubscriptionsViewModel: BaseViewModel , ObservableObject {
         }.store(in: &subscriptions)
     }
     
-    deinit {
-        countriesToken?.invalidate()
+    func removeSubscription(from country: Country) {
+        _ = dataManager.removeSubscribedCountry(country: country.toRealmObject())
     }
 }
