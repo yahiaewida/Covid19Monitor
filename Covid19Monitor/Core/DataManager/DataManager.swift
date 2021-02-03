@@ -9,10 +9,25 @@ import Foundation
 import Combine
 import RealmSwift
 
-class DataManager {
+
+protocol DataManagerProtocol {
+    // MARK:- Remote Functions
+    func getAllStatistics() -> PassthroughSubject<Statistics,ResponseError>
+    func getAllCountriesData() -> PassthroughSubject<Array<Country>,ResponseError>
+    func getCountryDetails(countryName: String) -> PassthroughSubject<CountryDetails,ResponseError>
+    func getWorldDetails() -> PassthroughSubject<Timeline,ResponseError>
+    
+    // MARK:- Local Functions
+    func addSubscribedCountry(country: CountryRealm) -> Bool
+    func removeSubscribedCountry(country: CountryRealm) -> Bool
+    func getSubscribedCountries() -> PassthroughSubject<[Country],ResponseError>
+}
+
+class DataManager: DataManagerProtocol {
     private let remoteDataHandler = RemoteDataHandler()
     private let localDataHandler = LocalDataHandler()
-    private var countriesToken: NotificationToken?
+    
+    // MARK:- Remote Functions
     
     func getAllStatistics() -> PassthroughSubject<Statistics,ResponseError> {
         return remoteDataHandler.request(uri: Urls.ALL_STATISTICS)
@@ -30,6 +45,8 @@ class DataManager {
         return remoteDataHandler.request(uri: Urls.COUNTRY_DETAILS + "all" + Urls.SEVEN_DAYS_QUERY)
     }
     
+    // MARK:- Local Functions
+    
     func addSubscribedCountry(country: CountryRealm) -> Bool {
         country.isSubscribed = true
         return localDataHandler.addSubscribedCountry(country: country)
@@ -40,15 +57,7 @@ class DataManager {
     }
   
     func getSubscribedCountries() -> PassthroughSubject<[Country],ResponseError> {
-        let countrySubject = PassthroughSubject<[Country],ResponseError>()
-        let data = localDataHandler.getSubscribedCountries()
-        countriesToken = data.observe { _ in
-            countrySubject.send(Array(data).toCountryArray())
-        }
-        return countrySubject
+        return localDataHandler.getSubscribedCountries()
     }
-    
-    deinit {
-        countriesToken?.invalidate()
-    }
+       
 }

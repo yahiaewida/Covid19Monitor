@@ -43,7 +43,7 @@ struct SubscriptionsView: View {
         }
         .padding([.top,.bottom],5)
         
-        return StatisticsHeaderView(reader: reader, backgroundColor: Color.lightGray, fontColor: Color.black.opacity(0.8), upperHeader:upperHeader , height: 130,confirmed: country.cases ?? 0, recovered: country.recovered ?? 0, deaths: country.deaths ?? 0, widthOffset: CGFloat(50))
+        return StatisticsHeaderView(reader: reader, backgroundColor: Color.lightGray, fontColor: Color.black.opacity(0.8), upperHeader: country.country ?? "" , height: 130,confirmed: country.cases ?? 0, recovered: country.recovered ?? 0, deaths: country.deaths ?? 0, widthOffset: CGFloat(50))
     }
 }
 

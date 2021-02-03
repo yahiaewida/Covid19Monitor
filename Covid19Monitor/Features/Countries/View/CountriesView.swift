@@ -57,9 +57,6 @@ struct CountriesView: View {
                 }
             )
         } else {
-            
-            //return AnyView(CoutriesStatisticsView(isPrefixRequired: false))
-            
             return AnyView(List {
                 ForEach(viewModel.countriesData, id: \.country) { country in
                     NavigationLink(destination: CountryDetailsView(viewModel: CountryDetailsViewModel(countryName: country.country ?? ""), country: country)) {
@@ -75,16 +72,8 @@ struct CountriesView: View {
         
     }
     
-    private func getCountryStatisticsView(reader : GeometryProxy,country: Country) -> some View {
-        
-        let upperHeader = HStack(alignment:.center) {
-            Text(country.country ?? "")
-                .font(Font.system(size: 22))
-                .bold()
-        }
-        .padding([.top,.bottom],5)
-        
-        return StatisticsHeaderView(reader: reader, backgroundColor: Color.lightGray, fontColor: Color.black.opacity(0.8), upperHeader:upperHeader , height: 130,confirmed: country.cases ?? 0, recovered: country.recovered ?? 0, deaths: country.deaths ?? 0, widthOffset: CGFloat(50))
+    private func getCountryStatisticsView(reader : GeometryProxy,country: Country) -> some View {        
+        return StatisticsHeaderView(reader: reader, backgroundColor: Color.lightGray, fontColor: Color.black.opacity(0.8), upperHeader: country.country ?? "" , height: 130,confirmed: country.cases ?? 0, recovered: country.recovered ?? 0, deaths: country.deaths ?? 0, widthOffset: CGFloat(50))
     }
 }
 

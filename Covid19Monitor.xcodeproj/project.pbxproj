@@ -11,8 +11,6 @@
 		E784211A25AB5D0C003F2609 /* StatisticsDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E784211925AB5D0C003F2609 /* StatisticsDetailsView.swift */; };
 		E784213025AC7CE4003F2609 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = E784212F25AC7CE4003F2609 /* Charts */; };
 		E784213325AC7D1B003F2609 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E784213225AC7D1B003F2609 /* PieChart.swift */; };
-		E784213B25AC870F003F2609 /* TransactionBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E784213A25AC870F003F2609 /* TransactionBarChartView.swift */; };
-		E784213E25AC8792003F2609 /* Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E784213D25AC8792003F2609 /* Transactions.swift */; };
 		E798044B259CB778007EAA9F /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = E798044A259CB778007EAA9F /* SwiftUICharts */; };
 		E798044F25A1FD28007EAA9F /* CountryDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E798044E25A1FD28007EAA9F /* CountryDetailsViewModel.swift */; };
 		E798045325A1FD9C007EAA9F /* CountryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E798045225A1FD9C007EAA9F /* CountryDetails.swift */; };
@@ -55,8 +53,6 @@
 		795AB8941E9123A13083FB48 /* Pods-Covid19Monitor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid19Monitor.debug.xcconfig"; path = "Target Support Files/Pods-Covid19Monitor/Pods-Covid19Monitor.debug.xcconfig"; sourceTree = "<group>"; };
 		E784211925AB5D0C003F2609 /* StatisticsDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsDetailsView.swift; sourceTree = "<group>"; };
 		E784213225AC7D1B003F2609 /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
-		E784213A25AC870F003F2609 /* TransactionBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionBarChartView.swift; sourceTree = "<group>"; };
-		E784213D25AC8792003F2609 /* Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
 		E798044E25A1FD28007EAA9F /* CountryDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailsViewModel.swift; sourceTree = "<group>"; };
 		E798045225A1FD9C007EAA9F /* CountryDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetails.swift; sourceTree = "<group>"; };
 		E798045C25A37787007EAA9F /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
@@ -352,8 +348,6 @@
 				E79B177F259B52C2005C3CB1 /* ActivityIndicator.swift */,
 				E798047725A3991D007EAA9F /* SegmentedPicker.swift */,
 				E784213225AC7D1B003F2609 /* PieChart.swift */,
-				E784213A25AC870F003F2609 /* TransactionBarChartView.swift */,
-				E784213D25AC8792003F2609 /* Transactions.swift */,
 				E7AA741425ADBCF600E61C0F /* DetailsView.swift */,
 			);
 			path = Common;
@@ -490,7 +484,6 @@
 				E79B17052594D585005C3CB1 /* MainTabView.swift in Sources */,
 				E798045325A1FD9C007EAA9F /* CountryDetails.swift in Sources */,
 				E79B17032594D585005C3CB1 /* Covid19MonitorApp.swift in Sources */,
-				E784213B25AC870F003F2609 /* TransactionBarChartView.swift in Sources */,
 				E79B173D25950A35005C3CB1 /* StatisticsHeaderView.swift in Sources */,
 				E79B17152594D77B005C3CB1 /* RemoteDataHandler.swift in Sources */,
 				E79B173925950066005C3CB1 /* WorldStatisticsView.swift in Sources */,
@@ -511,7 +504,6 @@
 				E784213325AC7D1B003F2609 /* PieChart.swift in Sources */,
 				E7AA741525ADBCF600E61C0F /* DetailsView.swift in Sources */,
 				E79B1780259B52C2005C3CB1 /* ActivityIndicator.swift in Sources */,
-				E784213E25AC8792003F2609 /* Transactions.swift in Sources */,
 				E79B172F2594FA67005C3CB1 /* DataManager.swift in Sources */,
 				E79B17252594E755005C3CB1 /* Constants.swift in Sources */,
 				E798044F25A1FD28007EAA9F /* CountryDetailsViewModel.swift in Sources */,

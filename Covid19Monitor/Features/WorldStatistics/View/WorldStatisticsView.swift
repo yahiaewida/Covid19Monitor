@@ -33,16 +33,8 @@ struct WorldStatisticsView: View {
         }
     }
     
-    func worldStatisticsView(reader: GeometryProxy) -> some View {
-        let upperHeader = Text("World Statistics")
-            .foregroundColor(.white)
-            .font(.title)
-            .bold()
-            .padding([.top, .trailing, .leading])
-            .padding([.top])
-            .padding([.bottom], 5)
-        
-        return StatisticsHeaderView(reader: reader,backgroundColor: Color.darkPurple, fontColor: Color.white, upperHeader: upperHeader, isShadowRequired: true, height: 160, confirmed: viewModel.worldStatistics.cases , recovered: viewModel.worldStatistics.recovered , deaths: viewModel.worldStatistics.deaths)
+    func worldStatisticsView(reader: GeometryProxy) -> some View {        
+        return StatisticsHeaderView(reader: reader,backgroundColor: Color.darkPurple, fontColor: Color.white, upperHeader: "World Statistics", isWorldStatistics: true, height: 160, confirmed: viewModel.worldStatistics.cases , recovered: viewModel.worldStatistics.recovered , deaths: viewModel.worldStatistics.deaths)
     }
 }
 

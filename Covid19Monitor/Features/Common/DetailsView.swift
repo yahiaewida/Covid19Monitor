@@ -82,11 +82,8 @@ struct DetailsView: View {
                     LineChartView(data: chartData , title: "Daily Cases Statistics", form: CGSize(width: reader.size.width > 20 ? reader.size.width - 20 : reader.size.width, height: 200),rateValue: 0,valueSpecifier: "%.0f")
                         .padding([.leading, .trailing], 10)
                         .padding([.top, .bottom], 20)
-                    
-                    
                 }
-            }
-            
+            }            
             .padding([.top],15)
         }
     }

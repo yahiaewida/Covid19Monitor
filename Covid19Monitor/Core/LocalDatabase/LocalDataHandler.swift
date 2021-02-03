@@ -19,6 +19,7 @@ func setTutorialRequired(to value: Bool) {
 
 class LocalDataHandler {
     private let realm = try! Realm()
+    private var countriesToken: NotificationToken?
     
     func addSubscribedCountry(country: CountryRealm) -> Bool {
         var result = false
@@ -49,8 +50,18 @@ class LocalDataHandler {
         return result
     }
     
-    func getSubscribedCountries() -> Results<CountryRealm> {
-         realm.objects(CountryRealm.self)
+    func getSubscribedCountries() -> PassthroughSubject<[Country],ResponseError> {
+        let countrySubject = PassthroughSubject<[Country],ResponseError>()
+        let data = realm.objects(CountryRealm.self)
+        
+        countriesToken = data.observe { _ in
+            countrySubject.send(Array(data).toCountryArray())
+        }
+        return countrySubject
+    }
+    
+    deinit {
+        countriesToken?.invalidate()
     }
 }
 

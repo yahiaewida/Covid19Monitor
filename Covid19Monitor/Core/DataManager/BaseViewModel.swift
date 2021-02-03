@@ -9,10 +9,13 @@ import Foundation
 import Combine
 
 class BaseViewModel {
-    let dataManager = DataManager()
+    let dataManager: DataManagerProtocol 
     var subscriptions: [AnyCancellable] = []
     @Published var isLoading = true
     
+    init() {
+        dataManager = DataManager()
+    }
     deinit {
         subscriptions.removeAll()
     }

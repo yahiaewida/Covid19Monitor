@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct StatisticsHeaderView <Header: View>: View  {
+struct StatisticsHeaderView : View  {
     var reader : GeometryProxy
     var backgroundColor: Color
     var fontColor: Color
-    var upperHeader: Header
-    var isShadowRequired = false
+    var upperHeader: String
+    var isWorldStatistics = false
     var height: CGFloat
     var confirmed: Int64
     var recovered: Int64
@@ -24,11 +24,11 @@ struct StatisticsHeaderView <Header: View>: View  {
             Rectangle()
                 .fill(backgroundColor)
                 .cornerRadius(20)
-                .shadow(radius: isShadowRequired ? 10 : 0)
+                .shadow(radius: isWorldStatistics ? 10 : 0)
                 .frame(width:reader.size.width > 0 ? reader.size.width - widthOffset : reader.size.width, height: height)
             
-            VStack {
-               upperHeader
+            VStack {                
+                getUpperHeaderView(text: upperHeader)
                 
                 Group {
                     HStack {
@@ -50,11 +50,31 @@ struct StatisticsHeaderView <Header: View>: View  {
         }
     }
     
-    private func getStatisticsSubHeaderView(title:String , value: Int64) -> some View{
+    private func getUpperHeaderView(text: String) -> AnyView {
+        if isWorldStatistics {
+            return AnyView(
+                Text(text)
+                    .foregroundColor(.white)
+                    .font(.title)
+                    .bold()
+                    .padding([.top, .trailing, .leading])
+                    .padding([.top])
+                    .padding([.bottom], 5)
+            )
+        } else {
+            return AnyView(
+                Text(text)
+                    .padding([.top], 5)
+                    .font(Font.system(size: 20))
+            )
+        }
+    }
+    
+    private func getStatisticsSubHeaderView(title:String , value: Int64) -> some View {
         VStack {
             Text(title)
                 .bold()
-            Text(String(value))
+            Text("\(value)")
                 .padding(5)
         }
     }
@@ -62,23 +82,9 @@ struct StatisticsHeaderView <Header: View>: View  {
 
 
 struct StatisticsHeaderView_Previews: PreviewProvider {
-    static let upperHeader : some View = HStack(alignment:.center) {
-        Spacer()
-        Text("Egypt")
-            .font(Font.system(size: 22))
-            .bold()
-        Spacer()
-        
-        Image("bell_unsubscribed")
-            .padding([.trailing],50)
-            .padding([.top],5)
-            .frame(width: 20, height: 20)
-    }
-    .padding([.top],5)
-    
     static var previews: some View {
         GeometryReader { reader in
-            StatisticsHeaderView(reader: reader, backgroundColor: Color.lightGray, fontColor: Color.primary, upperHeader: Text("Egypt") , height: 130,confirmed: 32323, recovered: 23232, deaths: 2323)
+            StatisticsHeaderView(reader: reader, backgroundColor: Color.lightGray, fontColor: Color.primary, upperHeader: "Egypt" , height: 130,confirmed: 32323, recovered: 23232, deaths: 2323)
         }
     }
 }
